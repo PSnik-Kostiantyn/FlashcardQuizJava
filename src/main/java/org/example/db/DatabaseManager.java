@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Singleton class for managing SQLite database operations.
  * Handles CRUD for decks and cards.
@@ -105,10 +106,10 @@ public class DatabaseManager {
 
     @SneakyThrows
     public void deleteDeck(long id) {
+        // Cards are deleted cascade due to foreign key constraint
         PreparedStatement ps = connection.prepareStatement("DELETE FROM decks WHERE id = ?");
         ps.setLong(1, id);
         ps.executeUpdate();
-        // Cards are deleted via CASCADE
     }
 
     @SneakyThrows

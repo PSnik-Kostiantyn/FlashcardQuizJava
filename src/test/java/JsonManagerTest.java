@@ -37,10 +37,10 @@ class JsonManagerTest {
         List<Deck> loadedDecks = JsonManager.loadDecksFromJson(tempFile.getAbsolutePath());
         assertNotNull(loadedDecks);
         assertEquals(1, loadedDecks.size());
-        assertEquals("TestDeck", loadedDecks.get(0).getName());
-        assertEquals(1, loadedDecks.get(0).getCards().size());
-        assertEquals("Q", loadedDecks.get(0).getCards().get(0).getQuestion());
-        assertEquals("A", loadedDecks.get(0).getCards().get(0).getAnswer());
+        assertEquals("TestDeck", loadedDecks.getFirst().getName());
+        assertEquals(1, loadedDecks.getFirst().getCards().size());
+        assertEquals("Q", loadedDecks.getFirst().getCards().getFirst().getQuestion());
+        assertEquals("A", loadedDecks.getFirst().getCards().getFirst().getAnswer());
     }
 
     @Test
