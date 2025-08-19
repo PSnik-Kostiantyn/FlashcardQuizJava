@@ -197,7 +197,7 @@ public class Main {
         System.out.println("\nStudy Mode for Deck: " + deck.getName());
         for (Card card : cards) {
             System.out.println("Question: " + card.getQuestion());
-            String userAnswer = getNonEmptyInput("Your answer: ");
+            String userAnswer = getNonEmptyInput("Your answer is: ");
             if (userAnswer.equalsIgnoreCase(card.getAnswer())) {
                 System.out.println("Correct!");
             } else {
@@ -209,14 +209,14 @@ public class Main {
     }
 
     private static void exportToJson() {
-        String filePath = getNonEmptyInput("Enter file path for export (e.g., decks.json): ");
+        String filePath = getNonEmptyInput("Enter file path for export (for example: decks.json): ");
         List<Deck> decks = db.getAllDecks();
         JsonManager.saveDecksToJson(decks, filePath);
         System.out.println("Export completed.");
     }
 
     private static void importFromJson() {
-        String filePath = getNonEmptyInput("Enter file path for import (e.g., decks.json): ");
+        String filePath = getNonEmptyInput("Enter file path for import (for example: decks.json): ");
         List<Deck> importedDecks = JsonManager.loadDecksFromJson(filePath);
         if (importedDecks == null) {
             System.out.println("Import failed.");
